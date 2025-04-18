@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: ./app/Dockerfile
     volumes:
-      - ./src:/var/www
+      - ./src:/var/www/html
     depends_on:
       - db
     ports:
@@ -12,12 +12,17 @@ services:
     networks:
       - laravel-net
   web:
-    image: httpd:2.4 
+    build: 
+      context: .
+      dockerfile: ./apache/Dockerfile  
     ports:
       - "8080:80"
     volumes:
-      - ./src:/var/www
+      - ./src:/var/www/html
       - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    stdin_open: true
+    tty: true
+    command: ["httpd", "-D", "FOREGROUND"]
     depends_on:
       - app
     networks:
@@ -32,7 +37,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: userpass
     volumes:
-      - ./mysql/data:/var/lib/mysql
+      - ./db/data:/var/lib/mysql
     networks:
       - laravel-net
 networks:
