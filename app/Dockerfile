@@ -9,6 +9,4 @@ WORKDIR /var/www/html
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-USER www-data
-
 CMD ["php-fpm"]
