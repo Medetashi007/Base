@@ -1,8 +1,12 @@
 services:
   app:
-    build: 
+    build:
       context: .
       dockerfile: ./app/Dockerfile
+      args:
+        USERNAME: ${USER}
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
     volumes:
       - ./src:/var/www/html
     depends_on:
@@ -12,9 +16,13 @@ services:
     networks:
       - laravel-net
   web:
-    build: 
+    build:
       context: .
-      dockerfile: ./apache/Dockerfile  
+      dockerfile: ./apache/Dockerfile
+      args:
+        USERNAME: ${USER}
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
     ports:
       - "8080:80"
     volumes:
@@ -22,7 +30,7 @@ services:
       - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
     stdin_open: true
     tty: true
-    command: ["httpd", "-D", "FOREGROUND"]
+    command: [ "httpd", "-D", "FOREGROUND" ]
     depends_on:
       - app
     networks:
