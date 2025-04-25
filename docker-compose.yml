@@ -48,5 +48,21 @@ services:
       - ./db/data:/var/lib/mysql
     networks:
       - laravel-net
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: rootpass
+      UPLOAD_LIMIT: 300M
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - laravel-net
+
 networks:
   laravel-net:
