@@ -6,4 +6,4 @@
 2. プロジェクトディレクトリ構成の作成
 3. yml、Dockerfileの作成
 4. Laravelプロジェクトのinstall
-5. nvm、vue、inertiaのinstall
+5. node、nvm、vue、inertiaのinstall
