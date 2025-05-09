@@ -53,3 +53,5 @@ Medetashiが主催するプロジェクトのベースを作る。
     # イナーシャのクライアントインストール
     npm install @inertiajs/vue3
     ```
+
+# Amongtake「領域展開（ブランチ作ったよ）」
