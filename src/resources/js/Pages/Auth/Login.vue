@@ -14,10 +14,6 @@
     </div>
 </template>
 
-<script>
-import LoginForm from "@Pages/Auth/Components/LoginForm.vue"
-
-export default {
-    name: 'Login',
-}
+<script setup>
+import LoginForm from '@Pages/Auth/Components/LoginForm.vue'
 </script>

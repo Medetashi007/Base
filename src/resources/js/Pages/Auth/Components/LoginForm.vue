@@ -53,8 +53,8 @@
     </div>
 </template>
 
-<script>
-import { useForm } from '@inertiajs/inertia-vue3';
+<script setup>
+import { useForm } from '@inertiajs/vue3';
 
 export default {
     name: 'Login',
