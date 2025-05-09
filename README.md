@@ -16,6 +16,24 @@ Medetashiが主催するプロジェクトのベースを作る。
 ## 環境構築（後からプロジェクトに参加した人向け）
 
 1. SSHキーを作成し、Githubに登録、SSH接続を確認する  
+    ```
+    # nvmをダウンロードしてインストールする：
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    
+    # シェルを再起動する代わりに実行する
+    \. "$HOME/.nvm/nvm.sh"
+    
+    # Node.jsをダウンロードしてインストールする：
+    nvm install 22
+    
+    # Node.jsのバージョンを確認する：
+    node -v # "v22.15.0"が表示される。
+    nvm current # "v22.15.0"が表示される。
+    
+    # npmのバージョンを確認する：
+    npm -v # "10.9.2"が表示される。
+    ```
+
 2. 既存のプロジェクトをUbuntu配下にダウンロードする 
     ```
     git clone git@github.com:Medetashi007/Base.git  
