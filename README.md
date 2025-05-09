@@ -48,5 +48,8 @@ Medetashiが主催するプロジェクトのベースを作る。
     npm -v # "10.9.2"が表示される。
 
     # 最新の安定版
-    $ npm install vue
+    npm install vue
+
+    # イナーシャのクライアントインストール
+    npm install @inertiajs/vue3
     ```
