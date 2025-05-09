@@ -16,6 +16,12 @@ Medetashiが主催するプロジェクトのベースを作る。
 ## 環境構築（後からプロジェクトに参加した人向け）
 
 1. SSHキーを作成し、Githubに登録、SSH接続を確認する  
+    ```
+    ssh-keygen -t ed25519 -C "あなたのメールアドレス"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+    cat ~/.ssh/id_ed25519.pub
+    ```
 
 2. 既存のプロジェクトをUbuntu配下にダウンロードする 
     ```
