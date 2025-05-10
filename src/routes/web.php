@@ -33,7 +33,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     // ダッシュボード
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard', [
+        return Inertia::render('Auth/Dashboard', [
             'user' => auth()->user()
         ]);
     })->name('dashboard');

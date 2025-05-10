@@ -37,6 +37,7 @@
                         <input id="password" v-model="form.password" type="password" required
                             class="appearance-none rounded-none relative block w-full px-3 py-2 border"
                             :class="errors.password ? 'border-red-300' : 'border-gray-300'" placeholder="パスワード" />
+                        <input type="hidden" :value="form._token" name="_token">
                         <div v-if="errors.password" class="text-red-500 text-xs mt-1">
                             {{ errors.password }}
                         </div>
