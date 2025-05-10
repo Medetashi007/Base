@@ -8,8 +8,6 @@ use App\Http\Requests\Auth\RegisterUserRequest;
 use App\Services\AuthService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Inertia\Response;
-use Inertia\Inertia;
 
 class AuthController extends Controller
 {
@@ -113,16 +111,6 @@ class AuthController extends Controller
             'authenticated' => false,
             'user' => null
         ]);
-    }
-
-    /**
-     * パスワード変更フォーム
-     *
-     * @return Response
-     */
-    public function showChangePasswordForm(): Response
-    {
-        return Inertia::render('Auth/ChangePassword');
     }
 
     /**

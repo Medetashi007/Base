@@ -47,6 +47,8 @@ class HandleInertiaRequests extends Middleware
                 'success' => $request->session()->get('success'),
                 'error' => $request->session()->get('error'),
             ],
+            // CSRFトークンをグローバルで共有
+            'csrf_token' => csrf_token(),
         ]);
     }
 }

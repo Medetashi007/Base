@@ -10,8 +10,9 @@
                     </label>
                     <input v-model="form.current_password" type="password"
                         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                    <span v-if="form.errors.current_password" class="text-red-500 text-sm">{{
-                        form.errors.current_password }}</span>
+                    <span v-if="form.errors.current_password" class="text-red-500 text-sm">
+                        {{ form.errors.current_password }}
+                    </span>
                 </div>
 
                 <div class="mb-4">
@@ -20,7 +21,9 @@
                     </label>
                     <input v-model="form.password" type="password"
                         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                    <span v-if="form.errors.password" class="text-red-500 text-sm">{{ form.errors.password }}</span>
+                    <span v-if="form.errors.password" class="text-red-500 text-sm">
+                        {{ form.errors.password }}
+                    </span>
                 </div>
 
                 <div class="mb-4">
@@ -51,9 +54,23 @@ const form = useForm({
     current_password: '',
     password: '',
     password_confirmation: '',
+    // CSRFトークンの確認
+    _token: document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
 })
 
 function submit() {
-    form.post(route('password.change'))
+    // POSTリクエスト時に必要な設定を追加
+    form.post(route('password.change'), {
+        preserveScroll: true,
+        onFinish: () => {
+            // 送信後にパスワードフィールドをクリア（セキュリティのため）
+            form.current_password = ''
+            form.password = ''
+            form.password_confirmation = ''
+        },
+        onError: (errors) => {
+            console.log('エラー:', errors)
+        }
+    })
 }
 </script>
