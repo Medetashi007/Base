@@ -31,7 +31,7 @@ Medetashiが主催するプロジェクトのベースを作る。
 3. ドッカーイメージ、ついでドッカーコンテナを立ち上げる
    ```
    docker compose build
-   dockwer compose up -d
+   docker compose up -d
    ```
 4. コンテナの中に入り、「環境構築」の5番を行う。但し、inertiaを入れる際はクライアントのみで良い。  
     サーバーサイドに入れるとファイルが初期化される恐れがあるので注意。
