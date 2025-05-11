@@ -33,10 +33,13 @@ Medetashiが主催するプロジェクトのベースを作る。
    docker compose build
    dockwer compose up -d
    ```
-4. 「環境構築」の5番を行う。但し、inertiaを入れる際はクライアントのみで良い。  
+4. コンテナの中に入り、「環境構築」の5番を行う。但し、inertiaを入れる際はクライアントのみで良い。  
     サーバーサイドに入れるとファイルが初期化される恐れがあるので注意。
     
     ```
+    # appコンテナの中に入る
+    docker compose exec app bash
+    
     # nvmをダウンロードしてインストールする：
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
     
