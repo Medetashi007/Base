@@ -21,6 +21,7 @@ Medetashiが主催するプロジェクトのベースを作る。
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
     cat ~/.ssh/id_ed25519.pub
+    ssh -T git@github.com
     ```
 
 2. 既存のプロジェクトをUbuntu配下にダウンロードする 
