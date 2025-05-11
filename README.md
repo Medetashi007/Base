@@ -28,7 +28,12 @@ Medetashiが主催するプロジェクトのベースを作る。
     ```
     git clone git@github.com:Medetashi007/Base.git  
     ```
-3. 「環境構築」の5番を行う。但し、inertiaを入れる際はクライアントのみで良い。  
+3. ドッカーイメージ、ついでドッカーコンテナを立ち上げる
+   ```
+   docker compose build
+   dockwer compose up -d
+   ```
+4. 「環境構築」の5番を行う。但し、inertiaを入れる際はクライアントのみで良い。  
     サーバーサイドに入れるとファイルが初期化される恐れがあるので注意。
     
     ```
