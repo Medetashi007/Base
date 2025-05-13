@@ -38,10 +38,12 @@ class ResetPasswordJa extends Notification
         // $url = config('app.frontend_url') . '/reset-password?token=' . $this->token . '&email=' . urlencode($notifiable->getEmailForPasswordReset());
 
         return (new MailMessage)
+            ->greeting('こんにちは！') 
             ->subject('パスワードリセットのご案内')
             ->line('以下のボタンをクリックしてパスワードの再設定を行ってください。')
             ->action('パスワードをリセット', url('/'))
-            ->line('このメールに心当たりがない場合は、何もする必要はありません。');
+            ->line('このメールに心当たりがない場合は、何もする必要はありません。')
+            ->salutation('よろしくお願いします！');
     }
 
     /**
