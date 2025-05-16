@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username', 10); // 文字列10文字以内
-            $table->string('password', 60); // Hash化されたパスワード用（通常60文字必要）
+            $table->string('password', 255); // Hash化されたパスワード用
             $table->string('email', 50)->unique(); // ユニーク、文字列50文字以内
             $table->rememberToken();
             $table->timestamps();

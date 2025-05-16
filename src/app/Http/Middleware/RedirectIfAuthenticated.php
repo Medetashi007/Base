@@ -18,7 +18,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect('/dashboard'); // または任意のリダイレクト先
+                return redirect('/dashboard');
             }
         }
 

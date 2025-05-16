@@ -132,6 +132,12 @@ class AuthService
      */
     public function changePassword(int $userId, string $currentPassword, string $newPassword): bool
     {
+
+        // 認証済みユーザーIDと変更対象IDが一致するかチェック
+        if (auth()->id() !== $userId) {
+            throw new \UnauthorizedException('不正なアクセスです。');
+        }
+
         try {
             $user = User::findOrFail($userId);
 

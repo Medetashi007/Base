@@ -78,7 +78,9 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'ja'),
+
+    'timezone' => 'Asia/Tokyo',
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
