@@ -60,7 +60,7 @@ class AuthViewController extends Controller
     {
         return Inertia::render('Auth/ResetPassword', [
             'token' => $token,
-            'email' => $request->query('email'),
+            'email' => urldecode($request->query('email')),
         ]);
     }
 }

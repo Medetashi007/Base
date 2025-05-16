@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\Lang;
 class ResetPasswordJa extends Notification
 {
     use Queueable;
-
+    public $token;
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**
@@ -35,13 +35,16 @@ class ResetPasswordJa extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        // $url = config('app.frontend_url') . '/reset-password?token=' . $this->token . '&email=' . urlencode($notifiable->getEmailForPasswordReset());
+        $url = route('password.reset', [
+            'token' => $this->token,
+            'email' => urlencode($notifiable->getEmailForPasswordReset())
+        ]);
 
         return (new MailMessage)
             ->greeting('こんにちは！') 
             ->subject('パスワードリセットのご案内')
             ->line('以下のボタンをクリックしてパスワードの再設定を行ってください。')
-            ->action('パスワードをリセット', url('/'))
+            ->action('パスワードをリセット', $url)
             ->line('このメールに心当たりがない場合は、何もする必要はありません。')
             ->salutation('よろしくお願いします！');
     }
