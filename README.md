@@ -13,7 +13,7 @@ Medetashiが主催するプロジェクトの一つ、プライベートプラ�
 4. Laravelプロジェクトのinstall
 5. node、nvm、vue、inertiaのinstall
 
-## 環境構築（後からプロジェクトに参加した人向け）
+## 環境構築（途中参加）
 
 1. SSHキーを作成し、Githubに登録、SSH接続を確認する  
     ```
